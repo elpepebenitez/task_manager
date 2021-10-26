@@ -5,16 +5,11 @@ const connectDB = require('./db/connect')
 require('dotenv').config()
 
 // middleware
+app.use(express.static('./public'))
 app.use(express.json())
 
 // routes
-app.get('/', (req, res) => {
-    res.send('Task Manager App')
-})
-
 app.use('/api/v1/tasks', tasksRouter)
-
-
 
 // app.get('/api/v1/tasks')         - get all tasks
 // app.post('/api/v1/tasks')        - create a new task
@@ -22,6 +17,7 @@ app.use('/api/v1/tasks', tasksRouter)
 // app.patch('/api/v1/tasks/:id')   - update task
 // app.delete('/api/v1/tasks/:id')  - delete task
 
+// 2:32:57
 
 const port = 3000
 
